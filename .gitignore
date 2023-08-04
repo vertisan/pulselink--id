@@ -1,0 +1,7 @@
+bin/
+*.zip
+
+.env
+!.env.dist
+!.env.test
+!.env.ci
