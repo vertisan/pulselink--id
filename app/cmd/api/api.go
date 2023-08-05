@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"fmt"
@@ -8,12 +8,7 @@ import (
 	"id-manager/internal/id_generator"
 )
 
-func main() {
-	c, err := config.LoadConfig()
-	if err != nil {
-		panic("Cannot load configuration!")
-	}
-
+func Start(c config.Config) {
 	router := gin.Default()
 
 	api := router.Group("/api/v1")
@@ -23,7 +18,7 @@ func main() {
 
 	healthcheck.RegisterRoutes(router, c)
 
-	err = router.Run(fmt.Sprintf(":%s", c.Port))
+	err := router.Run(fmt.Sprintf(":%s", c.Port))
 	if err != nil {
 		panic(fmt.Sprintf("Cannot start the server on port :%s", c.Port))
 	}

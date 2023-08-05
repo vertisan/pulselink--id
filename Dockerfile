@@ -24,7 +24,7 @@ ENV GOOS=linux
 ENV GOARCH=amd64
 ENV CGO_ENABLED=0
 
-RUN go build $DIR/cmd/api/main.go
+RUN go build
 
 
 ##    S E R V E
@@ -35,7 +35,7 @@ ENV GIN_MODE=release
 ENV SERVICE_NAME=id_manager
 ENV PORT=80
 
-COPY --from=builder /go/src/app/main /bin/id-manager
+COPY --from=builder /go/src/app/id-manager /bin/id-manager
 
 COPY docker/docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
