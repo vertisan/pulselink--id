@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  id-manager:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+      target: packer
+    entrypoint: ["test-entrypoint.sh"]

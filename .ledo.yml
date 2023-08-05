@@ -1,0 +1,11 @@
+
+docker:
+  registry: docker.io
+  namespace: vertisan
+  name: vrsf-playground-id-manager
+  main_service: id-manager
+  shell: /bin/bash
+modes:
+  base: docker/docker-compose.yml
+  dev: docker/docker-compose.yml docker/docker-compose.dev.yml
+  test: docker/docker-compose.yml docker/docker-compose.test.yml

@@ -14,14 +14,17 @@ func main() {
 		panic("Cannot load configuration!")
 	}
 
-	r := gin.Default()
+	router := gin.Default()
 
-	healthcheck.RegisterRoutes(r, c)
-	id_generator.RegisterRoutes(r, c)
+	api := router.Group("/api/v1")
+	{
+		id_generator.RegisterRoutes(api, c)
+	}
 
-	err = r.Run(fmt.Sprintf(":%s", c.Port))
+	healthcheck.RegisterRoutes(router, c)
+
+	err = router.Run(fmt.Sprintf(":%s", c.Port))
 	if err != nil {
 		panic(fmt.Sprintf("Cannot start the server on port :%s", c.Port))
-		return
 	}
 }

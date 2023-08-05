@@ -6,7 +6,7 @@ import (
 	idGenerator "id-manager/internal/id_generator/service"
 )
 
-func RegisterRoutes(router *gin.Engine, config config.Config) {
+func RegisterRoutes(router *gin.RouterGroup, config config.Config) {
 	idRoutes := router.Group("/id")
 	{
 		idRoutes.GET("/generate", func(ctx *gin.Context) {

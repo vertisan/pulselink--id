@@ -5,3 +5,5 @@ bin/
 !.env.dist
 !.env.test
 !.env.ci
+
+.ledo-mode
