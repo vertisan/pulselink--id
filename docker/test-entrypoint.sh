@@ -8,3 +8,5 @@ go mod verify
 
 golangci-lint --version
 golangci-lint run
+
+go test -v ./...
