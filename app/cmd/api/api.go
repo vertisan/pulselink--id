@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"id-manager/config"
 	"id-manager/internal/healthcheck"
-	"id-manager/internal/id_generator"
+	"id-manager/internal/id"
 )
 
 func Start(c config.Config) {
@@ -13,7 +13,7 @@ func Start(c config.Config) {
 
 	api := router.Group("/api/v1")
 	{
-		id_generator.RegisterRoutes(api, c)
+		id.RegisterRoutes(api, c)
 	}
 
 	healthcheck.RegisterRoutes(router, c)
