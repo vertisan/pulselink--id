@@ -1,20 +1,19 @@
-package id_generator
+package id
 
 import (
 	"github.com/gin-gonic/gin"
 	"id-manager/config"
-	idGenerator "id-manager/internal/id_generator/service"
+	idGenerator "id-manager/internal/id/service"
 )
 
 func RegisterRoutes(router *gin.RouterGroup, config config.Config) {
 	idRoutes := router.Group("/id")
 	{
-		idRoutes.GET("/generate", func(ctx *gin.Context) {
-			handleGetIdGenerate(ctx)
-		})
+		idRoutes.POST("", handlePostId)
+		idRoutes.POST("/", handlePostId) // TODO: Any alternative without a redirect?
 	}
 }
 
-func handleGetIdGenerate(ctx *gin.Context) {
+func handlePostId(ctx *gin.Context) {
 	ctx.JSON(idGenerator.GenerateId())
 }
