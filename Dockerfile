@@ -31,9 +31,7 @@ RUN go build
 ## ********************************************
 FROM alpine
 
-ENV GIN_MODE=release
-ENV SERVICE_NAME=id_manager
-ENV PORT=80
+ENV GRPC_PORT=9090
 
 COPY --from=builder /go/src/app/id-manager /bin/id-manager
 
@@ -41,4 +39,4 @@ COPY docker/docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["/bin/id-manager"]
-EXPOSE 80
+EXPOSE 9090

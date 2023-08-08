@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package id;
+
+option go_package = "./";
+
+service IdService {
+  rpc Create(Empty) returns (CreateIdResponse) {}
+}
+
+message Empty {}
+
+message CreateIdResponse {
+  string id = 1;
+}

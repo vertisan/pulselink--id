@@ -1,7 +1,7 @@
 package main
 
 import (
-	"id-manager/cmd/api"
+	"id-manager/cmd/grpc"
 	"id-manager/config"
 )
 
@@ -11,5 +11,5 @@ func main() {
 		panic("Cannot load configuration!")
 	}
 
-	api.Start(c)
+	grpc.InitServer(c)
 }

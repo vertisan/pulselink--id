@@ -1,4 +1,4 @@
-package idGenerator
+package id
 
 import (
 	"fmt"
@@ -9,10 +9,6 @@ import (
 )
 
 var sf *sonyflake.Sonyflake
-
-type Id struct {
-	Id uint64 `json:"id"`
-}
 
 func init() {
 	var st sonyflake.Settings
@@ -25,7 +21,7 @@ func init() {
 
 	sf = sonyflake.NewSonyflake(st)
 	if sf == nil {
-		panic("Cannot start snowflake!")
+		panic("Cannot start sonyflake!")
 	}
 }
 
@@ -46,11 +42,11 @@ func isOnEc2() bool {
 	return true
 }
 
-func GenerateId() (int, Id) {
+func GenerateId() uint64 {
 	id, err := sf.NextID()
 	if err != nil {
-		panic(fmt.Sprintf("Cannot generate the next ID: %v", err))
+		panic(fmt.Sprintf("Cannot create the ID: %v", err))
 	}
 
-	return http.StatusCreated, Id{Id: id}
+	return id
 }

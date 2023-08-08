@@ -5,8 +5,7 @@ import (
 )
 
 type Config struct {
-	Port        string `envconfig:"PORT" default:"80"`
-	ServiceName string `envconfig:"SERVICE_NAME" required:"true"`
+	GrpcPort string `envconfig:"GRPC_PORT" default:"9090"`
 }
 
 func LoadConfig() (config Config, err error) {

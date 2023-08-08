@@ -4,9 +4,7 @@ services:
   id-manager:
     image: vertisan/vrsf-playground-id-manager:latest
     environment:
-      - GIN_MODE=release
-      - SERVICE_NAME=id_manager
-      - PORT=80
+      - GRPC_PORT
     networks:
       - vrsf-playground-network
 
