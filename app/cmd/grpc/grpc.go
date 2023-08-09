@@ -8,9 +8,9 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	healthpb "google.golang.org/grpc/health/grpc_health_v1"
-	"id-manager/config"
-	pb "id-manager/internal/id/pb"
-	idGenerator "id-manager/internal/id/service"
+	"vrsf-playground/id-manager/config"
+	pb "vrsf-playground/id-manager/internal/id/pb"
+	idGenerator "vrsf-playground/id-manager/internal/id/service"
 )
 
 func InitServer(c config.Config) {

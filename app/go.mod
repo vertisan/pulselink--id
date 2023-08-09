@@ -1,4 +1,4 @@
-module id-manager
+module vrsf-playground/id-manager
 
 go 1.20
 

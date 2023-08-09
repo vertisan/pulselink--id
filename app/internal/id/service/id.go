@@ -2,8 +2,8 @@ package id
 
 import (
 	"context"
-	pb "id-manager/internal/id/pb"
 	"strconv"
+	pb "vrsf-playground/id-manager/internal/id/pb"
 )
 
 type Server struct {

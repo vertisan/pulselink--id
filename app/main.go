@@ -1,8 +1,8 @@
 package main
 
 import (
-	"id-manager/cmd/grpc"
-	"id-manager/config"
+	"vrsf-playground/id-manager/cmd/grpc"
+	"vrsf-playground/id-manager/config"
 )
 
 func main() {
